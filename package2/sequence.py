@@ -4,7 +4,11 @@ class SequenceChecker:
     def __init__(self):
         self.seq = []
 
-    def check_sequence(self, seq):
+    def check_sequence(self, seq:list) -> bool:
+        '''
+            Checks if sequence is graph sequence
+            returns bool
+        '''
         self.seq = copy(seq)
         self.seq = sorted(self.seq)
         self.seq.reverse()

@@ -1,4 +1,8 @@
 def are_lists_the_same(a:list,b:list) -> bool:
+    '''
+        Checks if lists are composed of the same elements
+        1,2,3 == 3,1,2
+    '''
     a = sorted(a)
     b = sorted(b)
     a_set = set(a)
@@ -7,7 +11,12 @@ def are_lists_the_same(a:list,b:list) -> bool:
         return True
     return False
 
-def get_all_neighbours(G,v):
+def get_all_neighbours(G,v) -> list:
+    '''
+        returns all neighbours of vertice v in G graph
+        G => adjacency matrix
+        v => number of node
+    '''
     neighbours = []
 
     for i in range(len(G)):
@@ -16,7 +25,11 @@ def get_all_neighbours(G,v):
 
     return neighbours
 
-def components(G):
+def components(G) -> list:
+    '''
+        Method returns list of subcomponents of the graph
+        G => adjacency matrix
+    '''
     comp = [[] for _ in range(len(G))]
     final_comps = []
     visited = []
@@ -65,8 +78,11 @@ def components(G):
     return final_comps
 
 def find_max_subgraph(graph_components):
-  max = graph_components[0]
-  for component in graph_components:
-    if len(component) > len(max):
-      max = component
-  return max
+    '''
+    returns subgraph with the most amount of nodes
+    '''
+    maxComp = graph_components[0]
+    for component in graph_components:
+        if len(component) > len(maxComp):
+            maxComp = component
+    return maxComp

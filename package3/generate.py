@@ -5,7 +5,9 @@ from utilities.GenerateGraph import GenerateGraph
 from package2.composition import components
 
 def connect_components_randomly(graph:GenerateGraph, comps:list) -> GenerateGraph:
-    #print(comps)
+    '''
+        Connects componnents in random way (helper function)
+    '''
     for i,comp in enumerate(comps):
         rand_elem = random.randint(0,len(comps[i])-1)
         rand_comp = i
@@ -22,7 +24,10 @@ def connect_components_randomly(graph:GenerateGraph, comps:list) -> GenerateGrap
         
     return graph
 
-def generate_random_graph():
+def generate_random_graph() -> GenerateGraph:
+    '''
+        Creates random graph
+    '''
     graph = GenerateGraph(10, 0.1)
     comps = components(graph.get_raw())
     while len(comps) > 1:
